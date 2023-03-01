@@ -16,14 +16,39 @@ $body.on("click", "#nav-all", navAllStories);
 
 /** Show new story submit form upon clicking story submit */
 
-const navSubmitStoryClick = (evt) => {
+function navSubmitStoryClick(evt) {
   console.debug("navSubmitStoryClick", evt);
   hidePageComponents();
   $allStoriesList.show();
   $submitForm.show();
-};
+}
 
 $navSubmitStory.on("click", navSubmitStoryClick);
+
+function navFavoritesClick(evt) {
+  console.debug("navFavoritesClick", evt);
+  hidePageComponents();
+  showFavoritesList();
+}
+
+$body.on("click", "#nav-favorites", navFavoritesClick);
+
+function navMyStories(evt) {
+  console.debug("navMyStories", evt);
+  hidePageComponents();
+  putUserStoriesOnPage();
+  $ownStories.show();
+}
+
+$body.on("click", "#nav-my-stories", navMyStories);
+
+function navProfileClick(evt) {
+  console.debug("navProfileClick", evt);
+  hidePageComponents();
+  $userProfile.show();
+}
+
+$navUserProfile.on("click", navProfileClick);
 
 /** Show login/signup on click on "login" */
 
